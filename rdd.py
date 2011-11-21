@@ -80,13 +80,13 @@ if __name__ == '__main__':
         die('command missing');
 
     cmd = args[0]
-    if cmd == 'resources':
+    if cmd in ('resources', 'r'):
         data = readability.resources()
-    elif cmd == 'shorten':
+    elif cmd in ('shorten', 's'):
         if len(args) < 2:
             die('argument missing')
         data = readability.shorten(args[1])
-    elif cmd == 'metadata':
+    elif cmd in ('metadata', 'm'):
         if len(args) < 2:
             die('argument missing')
         data = readability.metadata(args[1])
