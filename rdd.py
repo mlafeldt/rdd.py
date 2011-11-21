@@ -19,7 +19,7 @@ class Request(object):
         self.url = url or 'https://readability.com/api/shortener/v1'
         self.config = {}
         if verbose is not None:
-            self.config = {'verbose': verbose}
+            self.config['verbose'] = verbose
 
     def _request(self, method, path, data=None):
         headers = None
