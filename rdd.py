@@ -32,9 +32,8 @@ class Request(object):
                              config=self.config)
         r.raise_for_status()
 
-        # XXX API does not always return correct Content-Type
-        #if not self._JSON_MEDIA_TYPE in r.headers['Content-Type']:
-        #    raise TypeError('No JSON in response')
+        if not self._JSON_MEDIA_TYPE in r.headers['Content-Type']:
+            raise TypeError('No JSON in response')
 
         return json.loads(r.content) if r.content.strip() else None
 
