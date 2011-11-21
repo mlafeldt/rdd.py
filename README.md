@@ -10,7 +10,6 @@ Client Usage
 Retrieve information about sub-resources:
 
     $ rdd.py resources
-    2011-11-21T23:13:18.534124   GET   https://readability.com/api/shortener/v1/
     {
         "resources": {
             "urls/:id": {
@@ -27,7 +26,6 @@ Retrieve information about sub-resources:
 Create a new shortened URL:
 
     $ rdd.py shorten http://www.paulgraham.com/gh.html
-    2011-11-21T23:17:25.550291   POST   https://readability.com/api/shortener/v1/urls
     {
         "meta": {
             "url": "/api/shortener/v1/urls/ga4qf47t", 
@@ -43,7 +41,6 @@ Create a new shortened URL:
 Retrieve available metadata of a shortened link:
 
     $ rdd.py metadata ga4qf47t
-    2011-11-21T23:18:29.787581   GET   https://readability.com/api/shortener/v1/urls/ga4qf47t
     {
         "meta": {
             "article": {

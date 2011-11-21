@@ -64,16 +64,34 @@ class Readability(object):
 
 if __name__ == '__main__':
     import sys
+    import optparse
 
-    request = Request(verbose=sys.stderr)
+    def die(msg):
+        sys.exit('error: %s' % msg)
+
+    parser = optparse.OptionParser()
+    parser.add_option('-v', '--verbose', action='store_true')
+    opts, args = parser.parse_args()
+
+    request = Request(verbose=sys.stderr if opts.verbose else None)
     readability = Readability(request)
 
-    if (sys.argv[1] == 'resources'):
+    if len(args) < 1:
+        die('command missing');
+
+    cmd = args[0]
+    if cmd == 'resources':
         data = readability.resources()
-    elif (sys.argv[1] == 'shorten'):
-        data = readability.shorten(sys.argv[2])
-    elif (sys.argv[1] == 'metadata'):
-        data = readability.metadata(sys.argv[2])
+    elif cmd == 'shorten':
+        if len(args) < 2:
+            die('argument missing')
+        data = readability.shorten(args[1])
+    elif cmd == 'metadata':
+        if len(args) < 2:
+            die('argument missing')
+        data = readability.metadata(args[1])
+    else:
+        die('invalid command')
 
     # HACK re-encode json for pretty output
     print json.dumps(data, indent=4)
