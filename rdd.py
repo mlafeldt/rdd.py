@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 
 """
-Readability API implementation
+Python implementation of the Readability Shortener API
 
-The API is described at https://www.readability.com/publishers/rdd
+rdd.py can either be imported as a Python module or invoked as a command-line
+client.
 """
 
 import requests
