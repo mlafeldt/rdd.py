@@ -8,7 +8,10 @@ The API is described at https://www.readability.com/publishers/rdd
 """
 
 import requests
-import simplejson as json
+try:
+    import simplejson as json
+except ImportError:
+    import json
 
 
 class Readability(object):
