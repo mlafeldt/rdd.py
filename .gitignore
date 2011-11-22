@@ -25,3 +25,8 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+# ronn
+*.1
+*.1.html
+*.1.markdown

@@ -1,7 +1,7 @@
 rdd.py
 ======
 
-rdd.py is a Python implementation of the [Readability API].
+rdd.py is a Python implementation of the [Readability Shortener API].
 
 
 Client Usage
@@ -86,6 +86,5 @@ Contact
 * Web: <https://github.com/mlafeldt/rdd.py>
 * Mail: <mathias.lafeldt@gmail.com>
 
-
-[Readability API]: https://www.readability.com/publishers/rdd
+[Readability Shortener API]: https://www.readability.com/publishers/rdd
 [LICENSE]: https://github.com/mlafeldt/rdd.py/blob/master/LICENSE
