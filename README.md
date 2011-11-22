@@ -3,9 +3,14 @@ rdd.py
 
 rdd.py is a Python implementation of the [Readability Shortener API].
 
+rdd.py can either be imported as a Python module or invoked as a command-line
+client.
+
 
 Client Usage
 ------------
+
+(See [rdd.py(1)] manpage for more information.)
 
 Retrieve information about sub-resources:
 
@@ -88,3 +93,4 @@ Contact
 
 [Readability Shortener API]: https://www.readability.com/publishers/rdd
 [LICENSE]: https://github.com/mlafeldt/rdd.py/blob/master/LICENSE
+[rdd.py(1)]: http://mlafeldt.github.com/rdd.py/rdd.1.html
