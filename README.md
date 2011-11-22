@@ -65,8 +65,7 @@ API Usage
 ---------
 
     >>> import rdd
-    >>> request = rdd.Request()
-    >>> readability = rdd.Readability(request)
+    >>> readability = rdd.Readability()
     >>> readability.resources()
     {u'resources': {u'urls/:id': {u'href': u'/api/shortener/v1/urls/:id', u'description': u'The URL endpoint. GET a URL ID to view available metadata of a shortened link.'}, u'urls': {u'href': u'/api/shortener/v1/urls', u'description': u'The URLs endpoint. POST a URL to add it to the shortener.'}}}
     >>> readability.shorten('http://www.paulgraham.com/gh.html')
