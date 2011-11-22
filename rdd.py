@@ -53,13 +53,15 @@ if __name__ == '__main__':
         sys.exit('error: %s' % msg)
 
     parser = optparse.OptionParser()
+    parser.add_option('-u', '--url', action='store')
     parser.add_option('-v', '--verbose', action='store_true')
     opts, args = parser.parse_args()
 
     if len(args) < 1:
         die('command missing')
 
-    readability = Readability(verbose=sys.stderr if opts.verbose else None)
+    verbose = sys.stderr if opts.verbose else None
+    readability = Readability(url=opts.url, verbose=verbose)
 
     cmd = args[0]
     if cmd in ('resources', 'r'):
