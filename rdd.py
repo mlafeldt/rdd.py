@@ -8,6 +8,10 @@ rdd.py can either be imported as a Python module or invoked as a command-line
 client.
 """
 
+__author__ = 'Mathias Lafeldt <mathias.lafeldt@gmail.com>'
+__license__ = 'MIT'
+__version__ = '0.1.1'
+
 import requests
 try:
     import simplejson as json
