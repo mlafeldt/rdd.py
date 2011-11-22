@@ -22,7 +22,7 @@ class Readability(object):
     def _request(self, method, path, data=None, headers=None):
         url = self.url + path
         r = requests.request(method, url, data=data, headers=headers,
-                             config=self.config)
+                             config=self.config, allow_redirects=True)
         r.raise_for_status()
 
         if not 'application/json' in r.headers['Content-Type']:
