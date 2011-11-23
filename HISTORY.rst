@@ -2,6 +2,13 @@ History
 -------
 
 
+0.1.2 (2011-11-23)
+++++++++++++++++++
+
+* Split up rdd.py into package and runner script.
+* Add setup.py for easy installation.
+
+
 0.1.1 (2011-11-22)
 ++++++++++++++++++
 
