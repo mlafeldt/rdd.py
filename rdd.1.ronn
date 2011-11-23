@@ -1,19 +1,19 @@
-rdd.py(1) - Readability command-line client
-===========================================
+rdd(1) - Readability command-line client
+========================================
 
 
 ## SYNOPSIS
 
-`rdd.py` resources [<options>]
+`rdd` resources [<options>]
 
-`rdd.py` shorten <full-url> [<options>]
+`rdd` shorten <full-url> [<options>]
 
-`rdd.py` metadata <url-id> [<options>]
+`rdd` metadata <url-id> [<options>]
 
 
 ## DESCRIPTION
 
-`rdd.py` is a simple command-line tool to utilize the [Readability Shortener API].
+`rdd` is a simple command-line tool to utilize the [Readability Shortener API].
 
 [Readability Shortener API]: https://www.readability.com/publishers/rdd
 
@@ -50,7 +50,7 @@ rdd.py(1) - Readability command-line client
 
 ## EXAMPLES
 
-    $ rdd.py resources
+    $ rdd resources
     {
         "resources": {
             "urls/:id": {
@@ -64,7 +64,7 @@ rdd.py(1) - Readability command-line client
         }
     }
 
-    $ rdd.py shorten http://www.paulgraham.com/gh.html
+    $ rdd shorten http://www.paulgraham.com/gh.html
     {
         "meta": {
             "url": "/api/shortener/v1/urls/ga4qf47t",
@@ -77,7 +77,7 @@ rdd.py(1) - Readability command-line client
         "success": true
     }
 
-    $ rdd.py metadata ga4qf47t
+    $ rdd metadata ga4qf47t
     {
         "meta": {
             "article": {

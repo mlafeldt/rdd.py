@@ -3,19 +3,19 @@ rdd.py
 
 rdd.py is a Python implementation of the [Readability Shortener API].
 
-rdd.py can either be imported as a Python module or invoked as a command-line
-client.
+rdd.py comes with a Python module that can be imported via ```import rdd``` and
+a simple command-line tool named ```rdd``` to utilize it.
 
 
 Client Usage
 ------------
 
-(See [rdd.py(1)] manpage for more information.)
+(See [rdd(1)] manpage for more information.)
 
 Retrieve information about sub-resources:
 
 ```sh
-$ rdd.py resources
+$ rdd resources
 {
     "resources": {
         "urls/:id": {
@@ -33,7 +33,7 @@ $ rdd.py resources
 Create a new shortened URL:
 
 ```sh
-$ rdd.py shorten http://www.paulgraham.com/gh.html
+$ rdd shorten http://www.paulgraham.com/gh.html
 {
     "meta": {
         "url": "/api/shortener/v1/urls/ga4qf47t",
@@ -50,7 +50,7 @@ $ rdd.py shorten http://www.paulgraham.com/gh.html
 Retrieve available metadata of a shortened link:
 
 ```sh
-$ rdd.py metadata ga4qf47t
+$ rdd metadata ga4qf47t
 {
     "meta": {
         "article": {
@@ -102,4 +102,4 @@ Contact
 
 [Readability Shortener API]: https://www.readability.com/publishers/rdd
 [LICENSE]: https://github.com/mlafeldt/rdd.py/blob/master/LICENSE
-[rdd.py(1)]: http://mlafeldt.github.com/rdd.py/rdd.1.html
+[rdd(1)]: http://mlafeldt.github.com/rdd.py/rdd.1.html
