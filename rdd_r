@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""Run command-line tool"""
+
+import rdd.cli
+
+if __name__ == '__main__':
+    rdd.cli.main()

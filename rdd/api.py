@@ -1,16 +1,6 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-Python implementation of the Readability Shortener API
-
-rdd.py can either be imported as a Python module or invoked as a command-line
-client.
-"""
-
-__author__ = 'Mathias Lafeldt <mathias.lafeldt@gmail.com>'
-__license__ = 'MIT'
-__version__ = '0.1.1'
+"""Python implementation of the Readability Shortener API"""
 
 import requests
 try:
@@ -51,39 +41,3 @@ class Readability(object):
     def metadata(self, url_id):
         """Retrieve available metadata of a shortened link."""
         return self._request('GET', '/urls/%s' % url_id)
-
-
-if __name__ == '__main__':
-    import sys
-    import optparse
-
-    def die(msg):
-        sys.exit('error: %s' % msg)
-
-    parser = optparse.OptionParser()
-    parser.add_option('-u', '--url', action='store')
-    parser.add_option('-v', '--verbose', action='store_true')
-    opts, args = parser.parse_args()
-
-    if len(args) < 1:
-        die('command missing')
-
-    verbose = sys.stderr if opts.verbose else None
-    readability = Readability(url=opts.url, verbose=verbose)
-
-    cmd = args[0]
-    if cmd in ('resources', 'r'):
-        data = readability.resources()
-    elif cmd in ('shorten', 's'):
-        if len(args) < 2:
-            die('argument missing')
-        data = readability.shorten(args[1])
-    elif cmd in ('metadata', 'm'):
-        if len(args) < 2:
-            die('argument missing')
-        data = readability.metadata(args[1])
-    else:
-        die('invalid command')
-
-    # HACK re-encode json for pretty output
-    print json.dumps(data, indent=4)
