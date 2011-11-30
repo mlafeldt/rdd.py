@@ -13,20 +13,29 @@ class Readability(object):
 
     def __init__(self, url=None, verbose=None):
         self.url = url or 'https://readability.com/api/shortener/v1'
-        self.config = {}
-        if verbose is not None:
-            self.config['verbose'] = verbose
+        self.verbose = verbose
 
     def _request(self, method, path, data=None, headers=None):
         url = self.url + path
+
+        config = {}
+        if self.verbose is not None:
+            config['verbose'] = self.verbose
+
         r = requests.request(method, url, data=data, headers=headers,
-                             config=self.config, allow_redirects=True)
+                             config=config, allow_redirects=True)
         r.raise_for_status()
 
         if not 'application/json' in r.headers['Content-Type']:
             raise TypeError('No JSON in response')
 
-        return json.loads(r.content) if r.content.strip() else None
+        content = r.content.strip()
+        if content:
+            if self.verbose is not None:
+                self.verbose.write(content + '\n')
+            return json.loads(content)
+        else:
+            return None
 
     def resources(self):
         """Retrieve information about sub-resources."""
