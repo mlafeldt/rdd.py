@@ -124,7 +124,9 @@ total   7
 License
 -------
 
-See [LICENSE] file.
+* rdd.py is licensed under the terms of the MIT License. See [LICENSE] file.
+* [Sharness] and all tests are licensed under the terms of the GNU General
+  Public License version 2 or higher. See file [COPYING] for full license text.
 
 
 Contact
@@ -134,6 +136,7 @@ Contact
 * Mail: <mathias.lafeldt@gmail.com>
 
 
+[COPYING]: https://github.com/mlafeldt/rdd.py/blob/master/test/COPYING
 [LICENSE]: https://github.com/mlafeldt/rdd.py/blob/master/LICENSE
 [Readability Shortener API]: https://www.readability.com/publishers/rdd
 [Sharness]: https://github.com/mlafeldt/Sharness
