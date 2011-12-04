@@ -3,8 +3,8 @@ rdd.py
 
 rdd.py is a Python implementation of the [Readability Shortener API].
 
-rdd.py comes with a Python module that can be imported via ```import rdd``` and
-a simple command-line tool named ```rdd``` to utilize it.
+rdd.py comes with a Python module that can be imported via `import rdd` and a
+simple command-line tool named `rdd` to utilize it.
 
 
 Client Usage
@@ -87,6 +87,40 @@ API Usage
 ```
 
 
+Automated Tests
+---------------
+
+The `test` folder contains some automated test scripts powered by [Sharness].
+
+You can run the tests this way:
+
+```sh
+$ make -C test/
+*** t0001-resources.sh ***
+ok 1 - Get information about sub-resources
+# passed all 1 test(s)
+1..1
+*** t0002-shorten.sh ***
+ok 1 - Shorten URL http://www.paulgraham.com/gh.html (ga4qf47t)
+ok 2 - Shorten URL http://the99percent.com/articles/6943/What-Motivates-Us-To-Do-Great-Work (75x8oaqg)
+ok 3 - Shorten URL http://www.inc.com/magazine/20100401/driven-to-distraction.html (yibs1cca)
+# passed all 3 test(s)
+1..3
+*** t0003-metadata.sh ***
+ok 1 - Get metadata of ga4qf47t (http://www.paulgraham.com/gh.html)
+ok 2 - Get metadata of 75x8oaqg (http://the99percent.com/articles/6943/What-Motivates-Us-To-Do-Great-Work)
+ok 3 - Get metadata of yibs1cca (http://www.inc.com/magazine/20100401/driven-to-distraction.html)
+# passed all 3 test(s)
+1..3
+
+fixed   0
+success 7
+failed  0
+broken  0
+total   7
+```
+
+
 License
 -------
 
@@ -100,6 +134,7 @@ Contact
 * Mail: <mathias.lafeldt@gmail.com>
 
 
-[Readability Shortener API]: https://www.readability.com/publishers/rdd
 [LICENSE]: https://github.com/mlafeldt/rdd.py/blob/master/LICENSE
+[Readability Shortener API]: https://www.readability.com/publishers/rdd
+[Sharness]: https://github.com/mlafeldt/Sharness
 [rdd(1)]: http://mlafeldt.github.com/rdd.py/rdd.1.html
