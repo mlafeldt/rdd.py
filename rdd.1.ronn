@@ -48,6 +48,19 @@ rdd(1) - Readability command-line client
     URL ID as returned by the Readability API, e.g. "ga4qf47t".
 
 
+## ENVIRONMENT
+
+The following environment variables are evaluated:
+
+  * `RDD_URL`:
+    Set URL of Readability shortener service. Can also be controlled by the
+    `--url` command-line option.
+
+  * `RDD_VERBOSE`:
+    Define to enable verbose mode. Can also be controlled by the `--verbose`
+    command-line option.
+
+
 ## EXAMPLES
 
     $ rdd resources

@@ -3,6 +3,7 @@
 """Command-line interface for Readability"""
 
 import sys
+import os
 import optparse
 
 from .api import Readability
@@ -14,8 +15,12 @@ def die(msg):
 
 def main():
     parser = optparse.OptionParser()
-    parser.add_option('-u', '--url', action='store')
-    parser.add_option('-v', '--verbose', action='store_true')
+    parser.add_option('-u', '--url',
+                      action='store',
+                      default=os.environ.get('RDD_URL'))
+    parser.add_option('-v', '--verbose',
+                      action='store_true',
+                      default=os.environ.get('RDD_VERBOSE'))
     opts, args = parser.parse_args()
 
     if len(args) < 1:
