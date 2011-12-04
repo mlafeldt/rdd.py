@@ -4,6 +4,10 @@ test_description="Create shortened URLs"
 
 . ./sharness.sh
 
+unset RDD_URL
+unset RDD_VERBOSE
+
+
 shorten() {
     url="$1"
     rdd_id="$2"

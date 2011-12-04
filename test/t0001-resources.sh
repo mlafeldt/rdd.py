@@ -4,6 +4,10 @@ test_description="Get information about sub-resources"
 
 . ./sharness.sh
 
+unset RDD_URL
+unset RDD_VERBOSE
+
+
 cat >expect <<EOF
 {
     "resources": {

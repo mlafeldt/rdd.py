@@ -4,6 +4,10 @@ test_description="Get metadata of shortened links"
 
 . ./sharness.sh
 
+unset RDD_URL
+unset RDD_VERBOSE
+
+
 json_str() {
     test -n "$1" && echo -n \"$1\" || echo -n null
 }
