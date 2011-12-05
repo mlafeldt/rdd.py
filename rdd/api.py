@@ -14,6 +14,8 @@ try:
 except ImportError:
     import json
 
+__all__ = ['Readability']
+
 
 class Readability(object):
 

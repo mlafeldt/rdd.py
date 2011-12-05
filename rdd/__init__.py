@@ -13,3 +13,4 @@ __license__ = 'MIT'
 __version__ = '0.1.3'
 
 from .api import Readability
+from .exceptions import *
