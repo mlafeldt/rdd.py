@@ -14,6 +14,9 @@ import os
 import optparse
 
 from .api import Readability
+from .exceptions import RequestException
+
+__all__ = ['main']
 
 
 def die(msg):
@@ -36,19 +39,22 @@ def main():
     verbose = sys.stderr if opts.verbose else None
     readability = Readability(url=opts.url, verbose=verbose)
 
-    cmd = args[0]
-    if cmd in ('resources', 'r'):
-        data = readability.resources()
-    elif cmd in ('shorten', 's'):
-        if len(args) < 2:
-            die('argument missing')
-        data = readability.shorten(args[1])
-    elif cmd in ('metadata', 'm'):
-        if len(args) < 2:
-            die('argument missing')
-        data = readability.metadata(args[1])
-    else:
-        die('invalid command')
+    try:
+        cmd = args[0]
+        if cmd in ('resources', 'r'):
+            data = readability.resources()
+        elif cmd in ('shorten', 's'):
+            if len(args) < 2:
+                die('argument missing')
+            data = readability.shorten(args[1])
+        elif cmd in ('metadata', 'm'):
+            if len(args) < 2:
+                die('argument missing')
+            data = readability.metadata(args[1])
+        else:
+            die('invalid command')
+    except RequestException, e:
+        die('%s: %s' % (e.__class__.__name__, e))
 
     # HACK re-encode json for pretty output
     import json
