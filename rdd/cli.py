@@ -23,7 +23,7 @@ def die(msg):
     sys.exit('error: %s' % msg)
 
 
-def main():
+def main(argv=None):
     parser = optparse.OptionParser()
     parser.add_option('-u', '--url',
                       action='store',
@@ -31,7 +31,7 @@ def main():
     parser.add_option('-v', '--verbose',
                       action='store_true',
                       default=os.environ.get('RDD_VERBOSE'))
-    opts, args = parser.parse_args()
+    opts, args = parser.parse_args(argv)
 
     if len(args) < 1:
         die('command missing')
