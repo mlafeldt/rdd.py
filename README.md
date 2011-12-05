@@ -7,6 +7,19 @@ rdd.py comes with a Python module that can be imported via `import rdd` and a
 simple command-line tool named `rdd` to utilize it.
 
 
+Installation
+------------
+
+rdd.py requires [Requests] -- the excellent HTTP library by Kenneth Reitz
+(@kennethreitz). [This page][Requests-install] explains how to install it.
+
+rdd.py itself can be installed via `setup.py`:
+
+```sh
+$ python setup.py install
+```
+
+
 Client Usage
 ------------
 
@@ -141,3 +154,5 @@ Contact
 [Readability Shortener API]: https://www.readability.com/publishers/rdd
 [Sharness]: https://github.com/mlafeldt/Sharness
 [rdd(1)]: http://mlafeldt.github.com/rdd.py/rdd.1.html
+[Requests]: http://python-requests.org
+[Requests-install]: http://docs.python-requests.org/en/latest/user/install/
