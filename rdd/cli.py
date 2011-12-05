@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 
-"""Command-line interface for Readability"""
+"""
+rdd.cli
+~~~~~~~
+
+This module implements the command-line interface to the Readability
+Shortener API.
+
+"""
 
 import sys
 import os

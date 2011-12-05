@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
 
-"""Python implementation of the Readability Shortener API"""
+"""
+rdd.api
+~~~~~~~
+
+This module implements the Readability Shortener API.
+
+"""
 
 import requests
 try:
