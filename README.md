@@ -147,6 +147,7 @@ Contact
 
 * Web: <https://github.com/mlafeldt/rdd.py>
 * Mail: <mathias.lafeldt@gmail.com>
+* Twitter: [@mlafeldt](https://twitter.com/mlafeldt)
 
 
 [COPYING]: https://github.com/mlafeldt/rdd.py/blob/master/test/COPYING
