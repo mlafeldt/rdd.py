@@ -1,6 +1,14 @@
 History
 -------
 
+0.1.4 (2011-12-05)
+++++++++++++++++++
+
+* Support environment variables ``RDD_URL`` and ``RDD_VERBOSE``.
+* Additionally print HTTP content in verbose mode.
+* Add rdd.exceptions (imports exceptions from Requests).
+* Improve documentation (install instructions, docstrings, etc.)
+
 
 0.1.3 (2011-12-04)
 ++++++++++++++++++
