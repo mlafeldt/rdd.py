@@ -35,5 +35,7 @@ EOF
 shorten "http://www.paulgraham.com/gh.html" "ga4qf47t"
 shorten "http://the99percent.com/articles/6943/What-Motivates-Us-To-Do-Great-Work" "75x8oaqg"
 shorten "http://www.inc.com/magazine/20100401/driven-to-distraction.html" "yibs1cca"
+shorten "http://www.forbes.com/sites/venkateshrao/2011/12/05/the-rise-of-developeronomics/" "c1xma652"
+shorten "http://lubutu.com/idea/ivo" "vqvvpmhg"
 
 test_done
