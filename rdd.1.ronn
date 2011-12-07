@@ -1,7 +1,6 @@
 rdd(1) - Readability command-line client
 ========================================
 
-
 ## SYNOPSIS
 
 `rdd` resources [<options>]
@@ -10,13 +9,11 @@ rdd(1) - Readability command-line client
 
 `rdd` metadata <url-id> [<options>]
 
-
 ## DESCRIPTION
 
 `rdd` is a simple command-line tool to utilize the [Readability Shortener API].
 
 [Readability Shortener API]: https://www.readability.com/publishers/rdd
-
 
 ## COMMANDS
 
@@ -28,7 +25,6 @@ rdd(1) - Readability command-line client
 
   * metadata <url-id>:
     Retrieve available metadata of a shortened link.
-
 
 ## OPTIONS
 
@@ -47,7 +43,6 @@ rdd(1) - Readability command-line client
   * <url-id>:
     URL ID as returned by the Readability API, e.g. "ga4qf47t".
 
-
 ## ENVIRONMENT
 
 The following environment variables are evaluated:
@@ -59,7 +54,6 @@ The following environment variables are evaluated:
   * `RDD_VERBOSE`:
     Define to enable verbose mode. Can also be controlled by the `--verbose`
     command-line option.
-
 
 ## EXAMPLES
 
@@ -110,11 +104,9 @@ The following environment variables are evaluated:
         "success": true
     }
 
-
 ## AUTHOR
 
 Written by Mathias Lafeldt <mathias.lafeldt@gmail.com>
-
 
 ## DOCUMENTATION
 
