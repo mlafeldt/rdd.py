@@ -6,6 +6,7 @@ test_description="Get information about sub-resources"
 
 unset RDD_URL
 unset RDD_VERBOSE
+test "$verbose" = "t" && export RDD_VERBOSE=1
 
 
 cat >expect <<EOF

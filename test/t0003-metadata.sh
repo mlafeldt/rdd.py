@@ -6,6 +6,7 @@ test_description="Get metadata of shortened links"
 
 unset RDD_URL
 unset RDD_VERBOSE
+test "$verbose" = "t" && export RDD_VERBOSE=1
 
 
 json_str() {
