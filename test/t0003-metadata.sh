@@ -10,7 +10,7 @@ test "$verbose" = "t" && export RDD_VERBOSE=1
 
 
 json_str() {
-    test -n "$1" && echo -n \"$1\" || echo -n null
+    test -n "$1" && printf "\"$1\"" || printf "null"
 }
 
 metadata() {
