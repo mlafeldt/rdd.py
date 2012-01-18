@@ -1,6 +1,13 @@
 History
 -------
 
+0.1.5 (2012-01-18)
+++++++++++++++++++
+
+* Add more automated tests.
+* Fix tests to pass on Mac OS X Lion.
+* Set ``RDD_VERBOSE`` with test option -v.
+
 0.1.4 (2011-12-05)
 ++++++++++++++++++
 
