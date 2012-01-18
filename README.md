@@ -117,20 +117,24 @@ ok 1 - Get information about sub-resources
 ok 1 - Shorten URL http://www.paulgraham.com/gh.html (ga4qf47t)
 ok 2 - Shorten URL http://the99percent.com/articles/6943/What-Motivates-Us-To-Do-Great-Work (75x8oaqg)
 ok 3 - Shorten URL http://www.inc.com/magazine/20100401/driven-to-distraction.html (yibs1cca)
-# passed all 3 test(s)
-1..3
+ok 4 - Shorten URL http://www.forbes.com/sites/venkateshrao/2011/12/05/the-rise-of-developeronomics/ (c1xma652)
+ok 5 - Shorten URL http://lubutu.com/idea/ivo (vqvvpmhg)
+# passed all 5 test(s)
+1..5
 *** t0003-metadata.sh ***
 ok 1 - Get metadata of ga4qf47t (http://www.paulgraham.com/gh.html)
 ok 2 - Get metadata of 75x8oaqg (http://the99percent.com/articles/6943/What-Motivates-Us-To-Do-Great-Work)
 ok 3 - Get metadata of yibs1cca (http://www.inc.com/magazine/20100401/driven-to-distraction.html)
-# passed all 3 test(s)
-1..3
+ok 4 - Get metadata of c1xma652 (http://www.forbes.com/sites/venkateshrao/2011/12/05/the-rise-of-developeronomics/)
+ok 5 - Get metadata of vqvvpmhg (http://lubutu.com/idea/ivo)
+# passed all 5 test(s)
+1..5
 
 fixed   0
-success 7
+success 11
 failed  0
 broken  0
-total   7
+total   11
 ```
 
 
