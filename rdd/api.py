@@ -20,7 +20,7 @@ __all__ = ['Readability']
 class Readability(object):
 
     def __init__(self, url=None, verbose=None):
-        self.url = url or 'https://readability.com/api/shortener/v1'
+        self.url = url or 'http://www.readability.com/api/shortener/v1'
         self.verbose = verbose
 
     def _request(self, method, path, data=None, headers=None):
