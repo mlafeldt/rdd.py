@@ -51,7 +51,7 @@ EOF
 metadata "ga4qf47t" \
     "http://www.paulgraham.com/gh.html" \
     "Great Hackers" \
-    "Want to start a startup? Get funded by Y Combinator . July 2004 (This essay is derived from a talk at Oscon 2004.) A few months ago I finished a new book , and in reviews I keep noticing words like&hellip;" \
+    "Want to start a startup? Get funded by Y Combinator. July 2004(This essay is derived from a talk at Oscon 2004.)A few months ago I finished a new book, and in reviews I keep noticing words like&hellip;" \
     5147 \
     ""
 
