@@ -31,7 +31,7 @@ class Readability(object):
             config['verbose'] = self.verbose
 
         r = requests.request(method, url, data=data, headers=headers,
-                             config=config, allow_redirects=True)
+                             config=config)
         r.raise_for_status()
 
         if not 'application/json' in r.headers['Content-Type']:
