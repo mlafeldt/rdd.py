@@ -1,6 +1,13 @@
 History
 -------
 
+0.1.6 (2012-02-09)
+++++++++++++++++++
+
+* Fix URL of shortener service. For whatever reason, HTTPS is no longer
+  supported. Only http://www.readability.com/api/shortener/v1 works.
+* Disable annoying HTTP POST redirection.
+
 0.1.5 (2012-01-18)
 ++++++++++++++++++
 
