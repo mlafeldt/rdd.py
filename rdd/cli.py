@@ -53,9 +53,9 @@ def main(argv=None):
             data = readability.metadata(args[1])
         else:
             die('invalid command')
-    except RequestException, e:
+    except RequestException as e:
         die('%s: %s' % (e.__class__.__name__, e))
 
     # HACK re-encode json for pretty output
     import json
-    print json.dumps(data, indent=4)
+    print(json.dumps(data, indent=4))
