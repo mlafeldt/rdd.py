@@ -9,10 +9,6 @@ This module implements the Readability Shortener API.
 """
 
 import requests
-try:
-    import simplejson as json
-except ImportError:
-    import json
 
 __all__ = ['Readability']
 
@@ -34,16 +30,10 @@ class Readability(object):
                              config=config)
         r.raise_for_status()
 
-        if not 'application/json' in r.headers['Content-Type']:
-            raise TypeError('No JSON in response')
+        if self.verbose is not None:
+            self.verbose.write(r.text + '\n')
 
-        content = r.content.strip()
-        if content:
-            if self.verbose is not None:
-                self.verbose.write(content + '\n')
-            return json.loads(content)
-        else:
-            return None
+        return r.json
 
     def resources(self):
         """Retrieve information about sub-resources."""

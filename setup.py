@@ -21,7 +21,7 @@ setup(name='rdd',
       packages=find_packages(),
       zip_safe=False,
       setup_requires=[],
-      install_requires=['requests>=0.7.0'],
+      install_requires=['requests>=0.12.1'],
       entry_points="""
       # -*- Entry points: -*-
       [console_scripts]
