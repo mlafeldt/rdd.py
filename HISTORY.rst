@@ -1,6 +1,14 @@
 History
 -------
 
+0.1.7 (2012-06-07)
+++++++++++++++++++
+
+* Make use of ``Response.json`` from Requests v0.12.1.
+* Add Python 3 support.
+* Add Travis CI config, testing Python 2.6, 2.7, and 3.2.
+* Update to Sharness v0.2.1.
+
 0.1.6 (2012-02-09)
 ++++++++++++++++++
 
