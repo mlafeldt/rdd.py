@@ -65,9 +65,9 @@ metadata "75x8oaqg" \
 metadata "yibs1cca" \
     "http://www.inc.com/magazine/20100401/driven-to-distraction.html" \
     "Driven to Distraction" \
-    "Are your business problems making you insane? In his debut column, 37signals co-founder Jason Fried argues that one of the keys to success is to let your lazy side guide you. I think of myself as&hellip;" \
-    884 \
-    "Jason Fried"
+    "Are your business problems making you insane? In his debut column, 37signals co-founder Jason Fried argues that one of the keys to success is to let your lazy side guide you. Jason Fried is the&hellip;" \
+    900 \
+    ""
 
 metadata "c1xma652" \
     "http://www.forbes.com/sites/venkateshrao/2011/12/05/the-rise-of-developeronomics/" \
