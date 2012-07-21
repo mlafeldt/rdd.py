@@ -26,9 +26,11 @@ def die(msg):
 def main(argv=None):
     parser = optparse.OptionParser()
     parser.add_option('-u', '--url',
+                      help='set URL of Readability shortener service',
                       action='store',
                       default=os.environ.get('RDD_URL'))
     parser.add_option('-v', '--verbose',
+                      help='be a bit more verbose',
                       action='store_true',
                       default=os.environ.get('RDD_VERBOSE'))
     opts, args = parser.parse_args(argv)
