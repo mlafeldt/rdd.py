@@ -14,7 +14,7 @@ import os
 import optparse
 
 from .api import Readability
-from .exceptions import RequestException
+from .exceptions import RequestException, ReadabilityException
 
 __all__ = ['main']
 
@@ -55,7 +55,7 @@ def main(argv=None):
             data = readability.metadata(args[1])
         else:
             die('invalid command')
-    except RequestException as e:
+    except (RequestException, ReadabilityException) as e:
         die('%s: %s' % (e.__class__.__name__, e))
 
     # HACK re-encode json for pretty output
