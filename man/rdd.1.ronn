@@ -1,0 +1,101 @@
+rdd(1) - Readability command-line client
+========================================
+
+## SYNOPSIS
+
+`rdd` resources [<options>]
+
+`rdd` shorten <full-url> [<options>]
+
+`rdd` metadata <url-id> [<options>]
+
+## DESCRIPTION
+
+`rdd` is a simple command-line tool to utilize the [Readability Shortener API].
+
+[Readability Shortener API]: https://www.readability.com/publishers/rdd
+
+## COMMANDS
+
+  * resources:
+    Retrieve information about sub-resources.
+
+  * shorten <full-url>:
+    Create a new shortened URL.
+
+  * metadata <url-id>:
+    Retrieve available metadata of a shortened link.
+
+## OPTIONS
+
+  * `-h`, `--help`:
+    Show a help message describing all available options.
+
+  * `-u`, `--url`:
+    Set URL of Readability shortener service.
+
+  * `-v`, `--verbose`:
+    Be a bit more verbose.
+
+  * <full-url>:
+    Long URL to be shortened, e.g. "http://www.paulgraham.com/gh.html".
+
+  * <url-id>:
+    URL ID as returned by the Readability API, e.g. "ga4qf47t".
+
+## ENVIRONMENT
+
+The following environment variables are evaluated:
+
+  * `RDD_URL`:
+    Set URL of Readability shortener service. Can also be controlled by the
+    `--url` command-line option.
+
+  * `RDD_VERBOSE`:
+    Define to enable verbose mode. Can also be controlled by the `--verbose`
+    command-line option.
+
+## EXAMPLES
+
+    $ rdd resources
+    urls/:id:
+      href:
+        /api/shortener/v1/urls/:id
+      description:
+        The URL endpoint. GET a URL ID to view available metadata of a shortened link.
+    urls:
+      href:
+        /api/shortener/v1/urls
+      description:
+        The URLs endpoint. POST a URL to add it to the shortener.
+
+    $ rdd shorten http://www.paulgraham.com/gh.html
+    url:
+      /api/shortener/v1/urls/ga4qf47t
+    rdd_url:
+      http://rdd.me/ga4qf47t
+    id:
+      ga4qf47t
+
+    $ rdd metadata ga4qf47t
+    article:
+      url:
+        http://www.paulgraham.com/gh.html
+      title:
+        Great Hackers
+      excerpt:
+        Want to start a startup? Get funded by Y Combinator. ...
+      word_count:
+        5147
+      author:
+        None
+    rdd_url:
+      http://rdd.me/ga4qf47t
+    id:
+      ga4qf47t
+    full_url:
+      http://readability.com/articles/ga4qf47t
+
+## AUTHOR
+
+Written by Mathias Lafeldt <mathias.lafeldt@gmail.com>

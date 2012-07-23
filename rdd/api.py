@@ -10,6 +10,8 @@ This module implements the Readability Shortener API.
 
 import requests
 
+from .exceptions import *
+
 __all__ = ['Readability']
 
 
@@ -37,14 +39,21 @@ class Readability(object):
 
     def resources(self):
         """Retrieve information about sub-resources."""
-        return self._request('GET', '/')
+        r = self._request('GET', '/')
+        return r['resources']
 
     def shorten(self, full_url):
         """Create a new shortened URL."""
         headers = {'Content-Type': 'application/x-www-form-urlencoded'}
         data = 'url=%s' % full_url
-        return self._request('POST', '/urls', data=data, headers=headers)
+        r = self._request('POST', '/urls', data=data, headers=headers)
+        if r.get('success') != True:
+            raise ShortenerError('Failed to shorten %s' % full_url)
+        return r['meta']
 
     def metadata(self, url_id):
         """Retrieve available metadata of a shortened link."""
-        return self._request('GET', '/urls/%s' % url_id)
+        r = self._request('GET', '/urls/%s' % url_id)
+        if r.get('success') != True:
+            raise MetadataError('Failed to get metadata for %s' % url_id)
+        return r['meta']

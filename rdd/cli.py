@@ -14,7 +14,7 @@ import os
 import optparse
 
 from .api import Readability
-from .exceptions import RequestException
+from .exceptions import RequestException, ReadabilityException
 
 __all__ = ['main']
 
@@ -23,12 +23,23 @@ def die(msg):
     sys.exit('error: %s' % msg)
 
 
+def pp(d, indent=0):
+    for k, v in list(d.items()):
+        print('  ' * indent + str(k) + ':')
+        if isinstance(v, dict):
+            pp(v, indent + 1)
+        else:
+            print('  ' * (indent + 1) + str(v))
+
+
 def main(argv=None):
     parser = optparse.OptionParser()
     parser.add_option('-u', '--url',
+                      help='set URL of Readability shortener service',
                       action='store',
                       default=os.environ.get('RDD_URL'))
     parser.add_option('-v', '--verbose',
+                      help='be a bit more verbose',
                       action='store_true',
                       default=os.environ.get('RDD_VERBOSE'))
     opts, args = parser.parse_args(argv)
@@ -53,9 +64,7 @@ def main(argv=None):
             data = readability.metadata(args[1])
         else:
             die('invalid command')
-    except RequestException as e:
+    except (RequestException, ReadabilityException) as e:
         die('%s: %s' % (e.__class__.__name__, e))
 
-    # HACK re-encode json for pretty output
-    import json
-    print(json.dumps(data, indent=4))
+    pp(data)

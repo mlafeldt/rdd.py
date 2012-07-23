@@ -1,4 +1,5 @@
 #!/bin/sh
+# vi: set ft=sh :
 
 test_description="Get metadata of shortened links"
 
@@ -9,37 +10,32 @@ unset RDD_VERBOSE
 test "$verbose" = "t" && export RDD_VERBOSE=1
 
 
-json_str() {
-    test -n "$1" && printf "\"$1\"" || printf "null"
-}
-
 metadata() {
     rdd_id="$1"
     url="$2"
-    title=$(json_str "$3")
-    excerpt=$(json_str "$4")
+    title="$3"
+    excerpt="$4"
     words="$5"
-    author=$(json_str "$6")
+    author="${6:-None}"
 
     cat >expect <<EOF
-{
-    "meta": {
-        "article": {
-            "url": "$url", 
-            "title": $title, 
-            "excerpt": $excerpt, 
-            "word_count": $words, 
-            "author": $author
-        }, 
-        "rdd_url": "http://rdd.me/$rdd_id", 
-        "id": "$rdd_id", 
-        "full_url": "http://readability.com/articles/$rdd_id"
-    }, 
-    "messages": [
-        "Article found."
-    ], 
-    "success": true
-}
+article:
+  url:
+    $url
+  title:
+    $title
+  excerpt:
+    $excerpt
+  word_count:
+    $words
+  author:
+    $author
+rdd_url:
+  http://rdd.me/$rdd_id
+id:
+  $rdd_id
+full_url:
+  http://readability.com/articles/$rdd_id
 EOF
 
     test_expect_success "Get metadata of $rdd_id ($url)" "
