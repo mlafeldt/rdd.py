@@ -1,0 +1,114 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "RDD" "1" "July 2012" "" ""
+.
+.SH "NAME"
+\fBrdd\fR \- Readability command\-line client
+.
+.SH "SYNOPSIS"
+\fBrdd\fR resources [\fIoptions\fR]
+.
+.P
+\fBrdd\fR shorten \fIfull\-url\fR [\fIoptions\fR]
+.
+.P
+\fBrdd\fR metadata \fIurl\-id\fR [\fIoptions\fR]
+.
+.SH "DESCRIPTION"
+\fBrdd\fR is a simple command\-line tool to utilize the Readability Shortener API \fIhttps://www\.readability\.com/publishers/rdd\fR\.
+.
+.SH "COMMANDS"
+.
+.TP
+resources
+Retrieve information about sub\-resources\.
+.
+.TP
+shorten \fIfull\-url\fR
+Create a new shortened URL\.
+.
+.TP
+metadata \fIurl\-id\fR
+Retrieve available metadata of a shortened link\.
+.
+.SH "OPTIONS"
+.
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Show a help message describing all available options\.
+.
+.TP
+\fB\-u\fR, \fB\-\-url\fR
+Set URL of Readability shortener service\.
+.
+.TP
+\fB\-v\fR, \fB\-\-verbose\fR
+Be a bit more verbose\.
+.
+.TP
+\fIfull\-url\fR
+Long URL to be shortened, e\.g\. "http://www\.paulgraham\.com/gh\.html"\.
+.
+.TP
+\fIurl\-id\fR
+URL ID as returned by the Readability API, e\.g\. "ga4qf47t"\.
+.
+.SH "ENVIRONMENT"
+The following environment variables are evaluated:
+.
+.TP
+\fBRDD_URL\fR
+Set URL of Readability shortener service\. Can also be controlled by the \fB\-\-url\fR command\-line option\.
+.
+.TP
+\fBRDD_VERBOSE\fR
+Define to enable verbose mode\. Can also be controlled by the \fB\-\-verbose\fR command\-line option\.
+.
+.SH "EXAMPLES"
+.
+.nf
+
+$ rdd resources
+urls/:id:
+  href:
+    /api/shortener/v1/urls/:id
+  description:
+    The URL endpoint\. GET a URL ID to view available metadata of a shortened link\.
+urls:
+  href:
+    /api/shortener/v1/urls
+  description:
+    The URLs endpoint\. POST a URL to add it to the shortener\.
+
+$ rdd shorten http://www\.paulgraham\.com/gh\.html
+url:
+  /api/shortener/v1/urls/ga4qf47t
+rdd_url:
+  http://rdd\.me/ga4qf47t
+id:
+  ga4qf47t
+
+$ rdd metadata ga4qf47t
+article:
+  url:
+    http://www\.paulgraham\.com/gh\.html
+  title:
+    Great Hackers
+  excerpt:
+    Want to start a startup? Get funded by Y Combinator\. \.\.\.
+  word_count:
+    5147
+  author:
+    None
+rdd_url:
+  http://rdd\.me/ga4qf47t
+id:
+  ga4qf47t
+full_url:
+  http://readability\.com/articles/ga4qf47t
+.
+.fi
+.
+.SH "AUTHOR"
+Written by Mathias Lafeldt \fImathias\.lafeldt@gmail\.com\fR
