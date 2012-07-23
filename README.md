@@ -16,14 +16,8 @@ rdd.py requires [Requests] - the excellent HTTP library by Kenneth Reitz.
 rdd.py itself can be installed via `setup.py`:
 
     $ git clone git://github.com/mlafeldt/rdd.py.git
-    $ cd rdd.py
+    $ cd rdd.py/
     $ python setup.py install
-
-
-Client Usage
-------------
-
-See [rdd(1)] manual page for the ins and outs of the `rrd` tool.
 
 
 API Usage
@@ -31,14 +25,24 @@ API Usage
 
 ```python
 >>> import rdd
+
 >>> readability = rdd.Readability()
+
 >>> readability.resources()
-{u'resources': {u'urls/:id': {u'href': u'/api/shortener/v1/urls/:id', u'description': u'The URL endpoint. GET a URL ID to view available metadata of a shortened link.'}, u'urls': {u'href': u'/api/shortener/v1/urls', u'description': u'The URLs endpoint. POST a URL to add it to the shortener.'}}}
+{u'urls/:id': {u'href': u'/api/shortener/v1/urls/:id', u'description': u'The URL endpoint. GET a URL ID to view available metadata of a shortened link.'}, u'urls': {u'href': u'/api/shortener/v1/urls', u'description': u'The URLs endpoint. POST a URL to add it to the shortener.'}}
+
 >>> readability.shorten('http://www.paulgraham.com/gh.html')
-{'meta': {'url': '/api/shortener/v1/urls/ga4qf47t', 'rdd_url': 'http://rdd.me/ga4qf47t', 'id': 'ga4qf47t'}, 'messages': ['URL shortened.'], 'success': True}
+{u'url': u'/api/shortener/v1/urls/ga4qf47t', u'rdd_url': u'http://rdd.me/ga4qf47t', u'id': u'ga4qf47t'}
+
 >>> readability.metadata('ga4qf47t')
-{'meta': {'article': {'url': 'http://www.paulgraham.com/gh.html', 'title': 'Great Hackers', 'excerpt': 'Want to start a startup? Get funded by Y Combinator . July 2004 (This essay is derived from a talk at Oscon 2004.) A few months ago I finished a new book , and in reviews I keep noticing words like&hellip;', 'word_count': 5147, 'author': None}, 'rdd_url': 'http://rdd.me/ga4qf47t', 'id': 'ga4qf47t', 'full_url': 'http://readability.com/articles/ga4qf47t'}, 'messages': ['Article found.'], 'success': True}
+{u'article': {u'url': u'http://www.paulgraham.com/gh.html', u'title': u'Great Hackers', u'excerpt': u'Want to start a startup? Get funded by Y Combinator. ...', u'word_count': 5147, u'author': None}, u'rdd_url': u'http://rdd.me/ga4qf47t', u'id': u'ga4qf47t', u'full_url': u'http://readability.com/articles/ga4qf47t'}
 ```
+
+
+Client Usage
+------------
+
+See [rdd(1)] manual page for the ins and outs of the `rrd` tool.
 
 
 Tests
@@ -62,7 +66,7 @@ License
 Contact
 -------
 
-* Web: <https://github.com/mlafeldt/rdd.py>
+* Web: <http://mlafeldt.github.com/rdd.py>
 * Mail: <mathias.lafeldt@gmail.com>
 * Twitter: [@mlafeldt](https://twitter.com/mlafeldt)
 
