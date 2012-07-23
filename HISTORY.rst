@@ -1,6 +1,15 @@
 History
 -------
 
+0.1.8 (2012-07-23)
+++++++++++++++++++
+
+* Only return API data of interest and output that data using own formatter
+  instead of json.
+* Add dedicated Readability exceptions.
+* Add help text to command-line options.
+* Update to Sharness v0.2.4.
+
 0.1.7 (2012-06-07)
 ++++++++++++++++++
 
