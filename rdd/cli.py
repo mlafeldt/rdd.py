@@ -23,6 +23,15 @@ def die(msg):
     sys.exit('error: %s' % msg)
 
 
+def pp(d, indent=0):
+    for k, v in list(d.items()):
+        print('  ' * indent + str(k) + ':')
+        if isinstance(v, dict):
+            pp(v, indent + 1)
+        else:
+            print('  ' * (indent + 1) + str(v))
+
+
 def main(argv=None):
     parser = optparse.OptionParser()
     parser.add_option('-u', '--url',
@@ -58,6 +67,4 @@ def main(argv=None):
     except (RequestException, ReadabilityException) as e:
         die('%s: %s' % (e.__class__.__name__, e))
 
-    # HACK re-encode json for pretty output
-    import json
-    print(json.dumps(data, indent=4))
+    pp(data)
