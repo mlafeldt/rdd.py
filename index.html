@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>rdd.py by mlafeldt</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">rdd.py</h1>
+        <p class="header">Python implementation of the Readability Shortener API</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/mlafeldt/rdd.py/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/mlafeldt/rdd.py/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/mlafeldt/rdd.py">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/mlafeldt">mlafeldt</a></p>
+
+
+      </header>
+      <section>
+        <h1>rdd.py</h1>
+
+<p>rdd.py is a Python implementation of the <a href="https://www.readability.com/publishers/rdd">Readability Shortener API</a>.</p>
+
+<p>The project comes with a Python module that can be imported via <code>import rdd</code> and
+a simple command-line tool named <code>rdd</code> to utilize it.</p>
+
+<h2>Installation</h2>
+
+<p>rdd.py requires <a href="http://python-requests.org">Requests</a> - the excellent HTTP library by Kenneth Reitz.
+<a href="http://docs.python-requests.org/en/latest/user/install/">This page</a> explains how to install it.</p>
+
+<p>rdd.py itself can be installed via <code>setup.py</code>:</p>
+
+<pre><code>$ git clone git://github.com/mlafeldt/rdd.py.git
+$ cd rdd.py/
+$ python setup.py install
+</code></pre>
+
+<h2>API Usage</h2>
+
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">rdd</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">readability</span> <span class="o">=</span> <span class="n">rdd</span><span class="o">.</span><span class="n">Readability</span><span class="p">()</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">readability</span><span class="o">.</span><span class="n">resources</span><span class="p">()</span>
+<span class="p">{</span><span class="s">u'urls/:id'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'href'</span><span class="p">:</span> <span class="s">u'/api/shortener/v1/urls/:id'</span><span class="p">,</span> <span class="s">u'description'</span><span class="p">:</span> <span class="s">u'The URL endpoint. GET a URL ID to view available metadata of a shortened link.'</span><span class="p">},</span> <span class="s">u'urls'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'href'</span><span class="p">:</span> <span class="s">u'/api/shortener/v1/urls'</span><span class="p">,</span> <span class="s">u'description'</span><span class="p">:</span> <span class="s">u'The URLs endpoint. POST a URL to add it to the shortener.'</span><span class="p">}}</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">readability</span><span class="o">.</span><span class="n">shorten</span><span class="p">(</span><span class="s">'http://www.paulgraham.com/gh.html'</span><span class="p">)</span>
+<span class="p">{</span><span class="s">u'url'</span><span class="p">:</span> <span class="s">u'/api/shortener/v1/urls/ga4qf47t'</span><span class="p">,</span> <span class="s">u'rdd_url'</span><span class="p">:</span> <span class="s">u'http://rdd.me/ga4qf47t'</span><span class="p">,</span> <span class="s">u'id'</span><span class="p">:</span> <span class="s">u'ga4qf47t'</span><span class="p">}</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">readability</span><span class="o">.</span><span class="n">metadata</span><span class="p">(</span><span class="s">'ga4qf47t'</span><span class="p">)</span>
+<span class="p">{</span><span class="s">u'article'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'url'</span><span class="p">:</span> <span class="s">u'http://www.paulgraham.com/gh.html'</span><span class="p">,</span> <span class="s">u'title'</span><span class="p">:</span> <span class="s">u'Great Hackers'</span><span class="p">,</span> <span class="s">u'excerpt'</span><span class="p">:</span> <span class="s">u'Want to start a startup? Get funded by Y Combinator. ...'</span><span class="p">,</span> <span class="s">u'word_count'</span><span class="p">:</span> <span class="mi">5147</span><span class="p">,</span> <span class="s">u'author'</span><span class="p">:</span> <span class="bp">None</span><span class="p">},</span> <span class="s">u'rdd_url'</span><span class="p">:</span> <span class="s">u'http://rdd.me/ga4qf47t'</span><span class="p">,</span> <span class="s">u'id'</span><span class="p">:</span> <span class="s">u'ga4qf47t'</span><span class="p">,</span> <span class="s">u'full_url'</span><span class="p">:</span> <span class="s">u'http://readability.com/articles/ga4qf47t'</span><span class="p">}</span>
+</pre></div>
+
+<h2>Client Usage</h2>
+
+<p>See <a href="http://mlafeldt.github.com/rdd.py/man/rdd.1.html">rdd(1)</a> manual page for the ins and outs of the <code>rrd</code> tool.</p>
+
+<h2>Tests</h2>
+
+<p>The <code>test</code> folder contains some automated test scripts powered by <a href="https://github.com/mlafeldt/Sharness">Sharness</a>.</p>
+
+<p>You can run the tests this way:</p>
+
+<pre><code>$ make -C test
+</code></pre>
+
+<h2>License</h2>
+
+<ul>
+<li>rdd.py is licensed under the terms of the MIT License. See <a href="https://github.com/mlafeldt/rdd.py/blob/master/LICENSE">LICENSE</a> file.</li>
+<li>
+<a href="https://github.com/mlafeldt/Sharness">Sharness</a> and all tests are licensed under the terms of the GNU General
+Public License version 2 or higher. See file <a href="https://github.com/mlafeldt/rdd.py/blob/master/test/COPYING">COPYING</a> for full license text.</li>
+</ul><h2>Contact</h2>
+
+<ul>
+<li>Web: <a href="http://mlafeldt.github.com/rdd.py">http://mlafeldt.github.com/rdd.py</a>
+</li>
+<li>Mail: <a href="mailto:mathias.lafeldt@gmail.com">mathias.lafeldt@gmail.com</a>
+</li>
+<li>Twitter: <a href="https://twitter.com/mlafeldt">@mlafeldt</a>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+		
+  </body>
+</html>
