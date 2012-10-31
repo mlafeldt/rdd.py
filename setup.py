@@ -1,7 +1,26 @@
 # -*- coding: utf-8 -*-
 
-from setuptools import setup, find_packages
+from setuptools import Command, find_packages, setup
 import rdd
+
+install_requires = ['requests>=0.12.1']
+tests_require = ['pytest', 'mock']
+
+
+class PyTest(Command):
+    description = 'Runs the test suite.'
+    user_options = []
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        import pytest
+        pytest.main('test/unit')
+
 
 setup(name='rdd',
       version=rdd.__version__,
@@ -21,9 +40,12 @@ setup(name='rdd',
       packages=find_packages(),
       zip_safe=False,
       setup_requires=[],
-      install_requires=['requests>=0.12.1'],
+      install_requires=install_requires,
+      tests_require=tests_require,
+      extras_require={'test': tests_require},
       entry_points="""
       # -*- Entry points: -*-
       [console_scripts]
       rdd=rdd.cli:main
-      """)
+      """,
+      cmdclass={'test': PyTest})
