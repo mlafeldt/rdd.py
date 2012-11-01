@@ -3,6 +3,8 @@
 
 test_description="Create shortened URLs"
 
+SHARNESS_BUILD_DIRECTORY="$PWD/../.."
+
 . ./sharness.sh
 
 unset RDD_URL
