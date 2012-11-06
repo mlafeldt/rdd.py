@@ -48,19 +48,24 @@ See [rdd(1)] manual page for the ins and outs of the `rrd` tool.
 Tests
 -----
 
-The `test` folder contains some automated test scripts powered by [Sharness].
+The `test` folder contains both unit and integration tests.
 
-You can run the tests this way:
+You can run the unit tests this way:
 
-    $ make -C test
+    $ python setup.py test
+
+And for the integration tests:
+
+    $ make -C test/integration
 
 
 License
 -------
 
 * rdd.py is licensed under the terms of the MIT License. See [LICENSE] file.
-* [Sharness] and all tests are licensed under the terms of the GNU General
-  Public License version 2 or higher. See file [COPYING] for full license text.
+* [Sharness] and all integration tests are licensed under the terms of the GNU
+  General Public License version 2 or higher. See file [COPYING] for full license
+  text.
 
 
 Contact
