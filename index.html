@@ -71,11 +71,16 @@ $ python setup.py install
 
 <h2>Tests</h2>
 
-<p>The <code>test</code> folder contains some automated test scripts powered by <a href="https://github.com/mlafeldt/Sharness">Sharness</a>.</p>
+<p>The <code>test</code> folder contains both unit and integration tests.</p>
 
-<p>You can run the tests this way:</p>
+<p>You can run the unit tests this way:</p>
 
-<pre><code>$ make -C test
+<pre><code>$ python setup.py test
+</code></pre>
+
+<p>And for the integration tests:</p>
+
+<pre><code>$ make -C test/integration
 </code></pre>
 
 <h2>License</h2>
@@ -83,8 +88,9 @@ $ python setup.py install
 <ul>
 <li>rdd.py is licensed under the terms of the MIT License. See <a href="https://github.com/mlafeldt/rdd.py/blob/master/LICENSE">LICENSE</a> file.</li>
 <li>
-<a href="https://github.com/mlafeldt/Sharness">Sharness</a> and all tests are licensed under the terms of the GNU General
-Public License version 2 or higher. See file <a href="https://github.com/mlafeldt/rdd.py/blob/master/test/COPYING">COPYING</a> for full license text.</li>
+<a href="https://github.com/mlafeldt/Sharness">Sharness</a> and all integration tests are licensed under the terms of the GNU
+General Public License version 2 or higher. See file <a href="https://github.com/mlafeldt/rdd.py/blob/master/test/COPYING">COPYING</a> for full license
+text.</li>
 </ul><h2>Contact</h2>
 
 <ul>
@@ -100,7 +106,7 @@ Public License version 2 or higher. See file <a href="https://github.com/mlafeld
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 		
   </body>
 </html>
