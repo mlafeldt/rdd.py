@@ -1,6 +1,13 @@
 History
 -------
 
+0.1.9 (2012-11-06)
+++++++++++++++++++
+
+* Add unit tests powered by `pytest <http://pytest.org>`_.
+* Work around dependency error returned by ``pip install`` by hardcoding the
+  current rdd.py version in setup.py.
+
 0.1.8 (2012-07-23)
 ++++++++++++++++++
 
