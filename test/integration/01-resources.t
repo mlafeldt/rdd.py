@@ -3,6 +3,8 @@
 
 test_description="Get information about sub-resources"
 
+SHARNESS_BUILD_DIRECTORY="$PWD/../.."
+
 . ./sharness.sh
 
 unset RDD_URL

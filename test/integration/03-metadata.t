@@ -3,6 +3,8 @@
 
 test_description="Get metadata of shortened links"
 
+SHARNESS_BUILD_DIRECTORY="$PWD/../.."
+
 . ./sharness.sh
 
 unset RDD_URL
