@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from setuptools import Command, find_packages, setup
-import rdd
 
 install_requires = ['requests>=0.12.1']
 tests_require = ['pytest', 'mock']
@@ -23,7 +22,7 @@ class PyTest(Command):
 
 
 setup(name='rdd',
-      version=rdd.__version__,
+      version='0.1.8',
       author='Mathias Lafeldt',
       author_email='mathias.lafeldt@gmail.com',
       url='https://github.com/mlafeldt/rdd.py',
