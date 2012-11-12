@@ -24,11 +24,13 @@ def rdd_url(path):
 class TestReadability(object):
 
     def setup_class(self):
-        HTTPretty.enable()
+        if not os.environ.get('REALHTTP'):
+            HTTPretty.enable()
         self.readability = Readability()
 
     def teardown_class(self):
-        HTTPretty.disable()
+        if not os.environ.get('REALHTTP'):
+            HTTPretty.disable()
 
     def test_resources(self):
         HTTPretty.register_uri(HTTPretty.GET, rdd_url('/'),
