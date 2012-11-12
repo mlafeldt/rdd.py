@@ -3,6 +3,11 @@
 import json
 import mock
 import os
+import sys
+
+rdd_root = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', '..')
+sys.path.insert(0, rdd_root)
+
 import pytest
 import rdd
 
