@@ -24,18 +24,13 @@ class Readability(object):
     def _request(self, method, path, data=None, headers=None):
         url = self.url + path
 
-        config = {}
-        if self.verbose is not None:
-            config['verbose'] = self.verbose
-
-        r = requests.request(method, url, data=data, headers=headers,
-                             config=config)
+        r = requests.request(method, url, data=data, headers=headers)
         r.raise_for_status()
 
         if self.verbose is not None:
             self.verbose.write(r.text + '\n')
 
-        return r.json
+        return r.json()
 
     def resources(self):
         """Retrieve information about sub-resources."""
