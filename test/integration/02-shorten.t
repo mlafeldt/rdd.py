@@ -17,12 +17,12 @@ shorten() {
     rdd_id="$2"
 
     cat >expect <<EOF
-url:
-  /api/shortener/v1/urls/$rdd_id
-rdd_url:
-  http://rdd.me/$rdd_id
 id:
   $rdd_id
+rdd_url:
+  http://rdd.me/$rdd_id
+url:
+  /api/shortener/v1/urls/$rdd_id
 EOF
 
     test_expect_success "Shorten URL $url ($rdd_id)" "

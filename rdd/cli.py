@@ -24,7 +24,7 @@ def die(msg):
 
 
 def pp(d, indent=0):
-    for k, v in list(d.items()):
+    for k, v in list(sorted(d.items())):
         print('  ' * indent + str(k) + ':')
         if isinstance(v, dict):
             pp(v, indent + 1)

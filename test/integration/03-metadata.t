@@ -22,22 +22,22 @@ metadata() {
 
     cat >expect <<EOF
 article:
-  url:
-    $url
-  title:
-    $title
-  excerpt:
-    $excerpt
-  word_count:
-    $words
   author:
     $author
-rdd_url:
-  http://rdd.me/$rdd_id
-id:
-  $rdd_id
+  excerpt:
+    $excerpt
+  title:
+    $title
+  url:
+    $url
+  word_count:
+    $words
 full_url:
   http://readability.com/articles/$rdd_id
+id:
+  $rdd_id
+rdd_url:
+  http://rdd.me/$rdd_id
 EOF
 
     test_expect_success "Get metadata of $rdd_id ($url)" "
