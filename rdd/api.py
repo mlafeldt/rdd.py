@@ -30,7 +30,7 @@ class Readability(object):
         if self.verbose is not None:
             self.verbose.write(r.text + '\n')
 
-        return r.json()
+        return r.json() if r.text.strip() else None
 
     def resources(self):
         """Retrieve information about sub-resources."""
