@@ -1,6 +1,14 @@
 History
 -------
 
+0.2.1 (2013-02-11)
+++++++++++++++++++
+
+* Fix JSON decoding in case no text is returned.
+* Sort JSON data to address hash randomization in Python 3.3.
+* Travis: run test against Python 3.3.
+* Add Travis status to README.
+
 0.2.0 (2012-12-19)
 ++++++++++++++++++
 

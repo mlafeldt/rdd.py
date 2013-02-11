@@ -22,7 +22,7 @@ class PyTest(Command):
 
 
 setup(name='rdd',
-      version='0.2.0',
+      version='0.2.1',
       author='Mathias Lafeldt',
       author_email='mathias.lafeldt@gmail.com',
       url='https://github.com/mlafeldt/rdd.py',
