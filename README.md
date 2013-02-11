@@ -48,6 +48,8 @@ See [rdd(1)] manual page for the ins and outs of the `rrd` tool.
 Tests
 -----
 
+[![Build Status](https://travis-ci.org/mlafeldt/rdd.py.png?branch=master)](https://travis-ci.org/mlafeldt/rdd.py)
+
 The `test` folder contains both unit and integration tests.
 
 You can run the unit tests this way:
