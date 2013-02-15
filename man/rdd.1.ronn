@@ -58,43 +58,43 @@ The following environment variables are evaluated:
 ## EXAMPLES
 
     $ rdd resources
-    urls/:id:
-      href:
-        /api/shortener/v1/urls/:id
-      description:
-        The URL endpoint. GET a URL ID to view available metadata of a shortened link.
     urls:
-      href:
-        /api/shortener/v1/urls
       description:
         The URLs endpoint. POST a URL to add it to the shortener.
+      href:
+        /api/shortener/v1/urls
+    urls/:id:
+      description:
+        The URL endpoint. GET a URL ID to view available metadata of a shortened link.
+      href:
+        /api/shortener/v1/urls/:id
 
     $ rdd shorten http://www.paulgraham.com/gh.html
-    url:
-      /api/shortener/v1/urls/ga4qf47t
-    rdd_url:
-      http://rdd.me/ga4qf47t
     id:
       ga4qf47t
+    rdd_url:
+      http://rdd.me/ga4qf47t
+    url:
+      /api/shortener/v1/urls/ga4qf47t
 
     $ rdd metadata ga4qf47t
     article:
-      url:
-        http://www.paulgraham.com/gh.html
-      title:
-        Great Hackers
-      excerpt:
-        Want to start a startup? Get funded by Y Combinator. ...
-      word_count:
-        5147
       author:
         None
-    rdd_url:
-      http://rdd.me/ga4qf47t
-    id:
-      ga4qf47t
+      excerpt:
+        Want to start a startup? Get funded by Y Combinator. ...
+      title:
+        Great Hackers
+      url:
+        http://www.paulgraham.com/gh.html
+      word_count:
+        5147
     full_url:
       http://readability.com/articles/ga4qf47t
+    id:
+      ga4qf47t
+    rdd_url:
+      http://rdd.me/ga4qf47t
 
 ## AUTHOR
 
