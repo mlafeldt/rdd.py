@@ -32,21 +32,26 @@
       <section>
         <h1>rdd.py</h1>
 
-<p>rdd.py is a Python implementation of the <a href="https://www.readability.com/publishers/rdd">Readability Shortener API</a>.</p>
+<p>rdd.py is a Python implementation of the <a href="https://www.readability.com/developers/api/rdd">Readability Shortener API</a>.</p>
 
 <p>The project comes with a Python module that can be imported via <code>import rdd</code> and
 a simple command-line tool named <code>rdd</code> to utilize it.</p>
 
 <h2>Installation</h2>
 
-<p>rdd.py requires <a href="http://python-requests.org">Requests</a> - the excellent HTTP library by Kenneth Reitz.
-<a href="http://docs.python-requests.org/en/latest/user/install/">This page</a> explains how to install it.</p>
+<p>rdd.py requires <a href="http://python-requests.org">Requests</a>. <a href="http://docs.python-requests.org/en/latest/user/install/">This page</a> explains how to
+install it.</p>
 
 <p>rdd.py itself can be installed via <code>setup.py</code>:</p>
 
 <pre><code>$ git clone git://github.com/mlafeldt/rdd.py.git
 $ cd rdd.py/
 $ python setup.py install
+</code></pre>
+
+<p>Alternatively, you can use pip:</p>
+
+<pre><code>$ pip install git+git://github.com/mlafeldt/rdd.py.git
 </code></pre>
 
 <h2>API Usage</h2>
@@ -56,20 +61,20 @@ $ python setup.py install
 <span class="o">&gt;&gt;&gt;</span> <span class="n">readability</span> <span class="o">=</span> <span class="n">rdd</span><span class="o">.</span><span class="n">Readability</span><span class="p">()</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">readability</span><span class="o">.</span><span class="n">resources</span><span class="p">()</span>
-<span class="p">{</span><span class="s">u'urls/:id'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'href'</span><span class="p">:</span> <span class="s">u'/api/shortener/v1/urls/:id'</span><span class="p">,</span> <span class="s">u'description'</span><span class="p">:</span> <span class="s">u'The URL endpoint. GET a URL ID to view available metadata of a shortened link.'</span><span class="p">},</span> <span class="s">u'urls'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'href'</span><span class="p">:</span> <span class="s">u'/api/shortener/v1/urls'</span><span class="p">,</span> <span class="s">u'description'</span><span class="p">:</span> <span class="s">u'The URLs endpoint. POST a URL to add it to the shortener.'</span><span class="p">}}</span>
+<span class="p">{</span><span class="s">'urls/:id'</span><span class="p">:</span> <span class="p">{</span><span class="s">'description'</span><span class="p">:</span> <span class="s">'The URL endpoint. GET a URL ID to view available metadata of a shortened link.'</span><span class="p">,</span> <span class="s">'href'</span><span class="p">:</span> <span class="s">'/api/shortener/v1/urls/:id'</span><span class="p">},</span> <span class="s">'urls'</span><span class="p">:</span> <span class="p">{</span><span class="s">'description'</span><span class="p">:</span> <span class="s">'The URLs endpoint. POST a URL to add it to the shortener.'</span><span class="p">,</span> <span class="s">'href'</span><span class="p">:</span> <span class="s">'/api/shortener/v1/urls'</span><span class="p">}}</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">readability</span><span class="o">.</span><span class="n">shorten</span><span class="p">(</span><span class="s">'http://www.paulgraham.com/gh.html'</span><span class="p">)</span>
-<span class="p">{</span><span class="s">u'url'</span><span class="p">:</span> <span class="s">u'/api/shortener/v1/urls/ga4qf47t'</span><span class="p">,</span> <span class="s">u'rdd_url'</span><span class="p">:</span> <span class="s">u'http://rdd.me/ga4qf47t'</span><span class="p">,</span> <span class="s">u'id'</span><span class="p">:</span> <span class="s">u'ga4qf47t'</span><span class="p">}</span>
+<span class="p">{</span><span class="s">'url'</span><span class="p">:</span> <span class="s">'/api/shortener/v1/urls/ga4qf47t'</span><span class="p">,</span> <span class="s">'id'</span><span class="p">:</span> <span class="s">'ga4qf47t'</span><span class="p">,</span> <span class="s">'rdd_url'</span><span class="p">:</span> <span class="s">'http://rdd.me/ga4qf47t'</span><span class="p">}</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">readability</span><span class="o">.</span><span class="n">metadata</span><span class="p">(</span><span class="s">'ga4qf47t'</span><span class="p">)</span>
-<span class="p">{</span><span class="s">u'article'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'url'</span><span class="p">:</span> <span class="s">u'http://www.paulgraham.com/gh.html'</span><span class="p">,</span> <span class="s">u'title'</span><span class="p">:</span> <span class="s">u'Great Hackers'</span><span class="p">,</span> <span class="s">u'excerpt'</span><span class="p">:</span> <span class="s">u'Want to start a startup? Get funded by Y Combinator. ...'</span><span class="p">,</span> <span class="s">u'word_count'</span><span class="p">:</span> <span class="mi">5147</span><span class="p">,</span> <span class="s">u'author'</span><span class="p">:</span> <span class="bp">None</span><span class="p">},</span> <span class="s">u'rdd_url'</span><span class="p">:</span> <span class="s">u'http://rdd.me/ga4qf47t'</span><span class="p">,</span> <span class="s">u'id'</span><span class="p">:</span> <span class="s">u'ga4qf47t'</span><span class="p">,</span> <span class="s">u'full_url'</span><span class="p">:</span> <span class="s">u'http://readability.com/articles/ga4qf47t'</span><span class="p">}</span>
+<span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="s">'ga4qf47t'</span><span class="p">,</span> <span class="s">'rdd_url'</span><span class="p">:</span> <span class="s">'http://rdd.me/ga4qf47t'</span><span class="p">,</span> <span class="s">'article'</span><span class="p">:</span> <span class="p">{</span><span class="s">'url'</span><span class="p">:</span> <span class="s">'http://www.paulgraham.com/gh.html'</span><span class="p">,</span> <span class="s">'word_count'</span><span class="p">:</span> <span class="mi">5147</span><span class="p">,</span> <span class="s">'excerpt'</span><span class="p">:</span> <span class="s">'Want to start a startup? Get funded by Y Combinator. July 2004(This essay is derived from a talk at Oscon 2004.)A few months ago I finished a new book, and in reviews I keep noticing words like&amp;hellip;'</span><span class="p">,</span> <span class="s">'author'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">'title'</span><span class="p">:</span> <span class="s">'Great Hackers'</span><span class="p">},</span> <span class="s">'full_url'</span><span class="p">:</span> <span class="s">'http://readability.com/articles/ga4qf47t'</span><span class="p">}</span>
 </pre></div>
 
 <h2>Client Usage</h2>
 
-<p>See <a href="http://mlafeldt.github.com/rdd.py/man/rdd.1.html">rdd(1)</a> manual page for the ins and outs of the <code>rrd</code> tool.</p>
+<p>See <a href="http://mlafeldt.github.com/rdd.py/man/rdd.1.html">rdd(1)</a> manual page for the ins and outs of the <code>rdd</code> tool.</p>
 
-<h2>Tests</h2>
+<h2>Testing</h2>
 
 <p><a href="https://travis-ci.org/mlafeldt/rdd.py"><img src="https://travis-ci.org/mlafeldt/rdd.py.png?branch=master" alt="Build Status"></a></p>
 
