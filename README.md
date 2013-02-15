@@ -10,14 +10,18 @@ a simple command-line tool named `rdd` to utilize it.
 Installation
 ------------
 
-rdd.py requires [Requests] - the excellent HTTP library by Kenneth Reitz.
-[This page][Requests-install] explains how to install it.
+rdd.py requires [Requests]. [This page][Requests-install] explains how to
+install it.
 
 rdd.py itself can be installed via `setup.py`:
 
     $ git clone git://github.com/mlafeldt/rdd.py.git
     $ cd rdd.py/
     $ python setup.py install
+
+Alternatively, you can use pip:
+
+    $ pip install git+git://github.com/mlafeldt/rdd.py.git
 
 
 API Usage
@@ -29,24 +33,24 @@ API Usage
 >>> readability = rdd.Readability()
 
 >>> readability.resources()
-{u'urls/:id': {u'href': u'/api/shortener/v1/urls/:id', u'description': u'The URL endpoint. GET a URL ID to view available metadata of a shortened link.'}, u'urls': {u'href': u'/api/shortener/v1/urls', u'description': u'The URLs endpoint. POST a URL to add it to the shortener.'}}
+{'urls/:id': {'description': 'The URL endpoint. GET a URL ID to view available metadata of a shortened link.', 'href': '/api/shortener/v1/urls/:id'}, 'urls': {'description': 'The URLs endpoint. POST a URL to add it to the shortener.', 'href': '/api/shortener/v1/urls'}}
 
 >>> readability.shorten('http://www.paulgraham.com/gh.html')
-{u'url': u'/api/shortener/v1/urls/ga4qf47t', u'rdd_url': u'http://rdd.me/ga4qf47t', u'id': u'ga4qf47t'}
+{'url': '/api/shortener/v1/urls/ga4qf47t', 'id': 'ga4qf47t', 'rdd_url': 'http://rdd.me/ga4qf47t'}
 
 >>> readability.metadata('ga4qf47t')
-{u'article': {u'url': u'http://www.paulgraham.com/gh.html', u'title': u'Great Hackers', u'excerpt': u'Want to start a startup? Get funded by Y Combinator. ...', u'word_count': 5147, u'author': None}, u'rdd_url': u'http://rdd.me/ga4qf47t', u'id': u'ga4qf47t', u'full_url': u'http://readability.com/articles/ga4qf47t'}
+{'id': 'ga4qf47t', 'rdd_url': 'http://rdd.me/ga4qf47t', 'article': {'url': 'http://www.paulgraham.com/gh.html', 'word_count': 5147, 'excerpt': 'Want to start a startup? Get funded by Y Combinator. July 2004(This essay is derived from a talk at Oscon 2004.)A few months ago I finished a new book, and in reviews I keep noticing words like&hellip;', 'author': None, 'title': 'Great Hackers'}, 'full_url': 'http://readability.com/articles/ga4qf47t'}
 ```
 
 
 Client Usage
 ------------
 
-See [rdd(1)] manual page for the ins and outs of the `rrd` tool.
+See [rdd(1)] manual page for the ins and outs of the `rdd` tool.
 
 
-Tests
------
+Testing
+-------
 
 [![Build Status](https://travis-ci.org/mlafeldt/rdd.py.png?branch=master)](https://travis-ci.org/mlafeldt/rdd.py)
 
