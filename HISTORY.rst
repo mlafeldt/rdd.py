@@ -1,6 +1,16 @@
 History
 -------
 
+0.2.2 (2013-02-15)
+++++++++++++++++++
+
+* Fix exit status of ``python setup.py test``.
+* Fix path to rdd module in tests.
+* Update README.
+* Update manpage.
+* Update copyright year in LICENSE file.
+
+
 0.2.1 (2013-02-11)
 ++++++++++++++++++
 
