@@ -13,7 +13,7 @@ rdd(1) - Readability command-line client
 
 `rdd` is a simple command-line tool to utilize the [Readability Shortener API].
 
-[Readability Shortener API]: https://www.readability.com/publishers/rdd
+[Readability Shortener API]: https://www.readability.com/developers/api/rdd
 
 ## COMMANDS
 

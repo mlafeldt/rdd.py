@@ -84,7 +84,7 @@ Contact
 
 [COPYING]: https://github.com/mlafeldt/rdd.py/blob/master/test/COPYING
 [LICENSE]: https://github.com/mlafeldt/rdd.py/blob/master/LICENSE
-[Readability Shortener API]: https://www.readability.com/publishers/rdd
+[Readability Shortener API]: https://www.readability.com/developers/api/rdd
 [Sharness]: https://github.com/mlafeldt/Sharness
 [rdd(1)]: http://mlafeldt.github.com/rdd.py/man/rdd.1.html
 [Requests]: http://python-requests.org
