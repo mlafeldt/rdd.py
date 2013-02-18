@@ -1,6 +1,13 @@
 History
 -------
 
+0.2.3 (2013-02-18)
+++++++++++++++++++
+
+* Use HTTPretty as mock library for unit tests.
+* Add commands ``test_units`` and ``test_integration`` to setup.py.
+* Update classifiers in setup.py.
+
 0.2.2 (2013-02-15)
 ++++++++++++++++++
 
@@ -9,7 +16,6 @@ History
 * Update README.
 * Update manpage.
 * Update copyright year in LICENSE file.
-
 
 0.2.1 (2013-02-11)
 ++++++++++++++++++

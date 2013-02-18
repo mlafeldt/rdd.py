@@ -62,7 +62,7 @@ class TestIntegration(Command):
 
 
 setup(name='rdd',
-      version='0.2.2',
+      version='0.2.3',
       author='Mathias Lafeldt',
       author_email='mathias.lafeldt@gmail.com',
       url='https://github.com/mlafeldt/rdd.py',
