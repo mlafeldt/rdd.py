@@ -54,15 +54,14 @@ Testing
 
 [![Build Status](https://travis-ci.org/mlafeldt/rdd.py.png?branch=master)](https://travis-ci.org/mlafeldt/rdd.py)
 
-The `test` folder contains both unit and integration tests.
+rdd.py comes with both unit and integration tests.
 
-You can run the unit tests this way:
+You can run the tests this way:
 
-    $ python setup.py test
+    $ python setup.py test             # Runs the entire test suite.
+    $ python setup.py test_units       # Runs all unit tests.
+    $ python setup.py test_integration # Runs all integration tests.
 
-And for the integration tests:
-
-    $ make -C test/integration
 
 
 License

@@ -1,26 +1,60 @@
 # -*- coding: utf-8 -*-
 
 from setuptools import Command, find_packages, setup
+import os
 import sys
+import pytest
 
 install_requires = ['requests>=1.0.3']
 tests_require = ['pytest', 'httpretty>=0.5.9']
 
 
-class PyTest(Command):
-    description = 'Runs the test suite.'
+def test_units():
+    """Run all unit tests"""
+    return pytest.main('test/unit')
+
+def test_integration():
+    """Run all integration tests"""
+    return os.system('make prove -C test/integration')
+
+
+class TestSuite(Command):
+    description = 'Runs the entire test suite.'
     user_options = []
 
-    def initialize_options(self):
-        pass
+    def initialize_options(self): pass
 
-    def finalize_options(self):
-        pass
+    def finalize_options(self): pass
 
     def run(self):
-        import pytest
-        errno = pytest.main('test/unit')
+        for t in (test_units, test_integration):
+            errno = t()
+            if errno != 0: break
         sys.exit(errno)
+
+
+class TestUnits(Command):
+    description = 'Runs all unit tests.'
+    user_options = []
+
+    def initialize_options(self): pass
+
+    def finalize_options(self): pass
+
+    def run(self):
+        sys.exit(test_units())
+
+
+class TestIntegration(Command):
+    description = 'Runs all integration tests.'
+    user_options = []
+
+    def initialize_options(self): pass
+
+    def finalize_options(self): pass
+
+    def run(self):
+        sys.exit(test_integration())
 
 
 setup(name='rdd',
@@ -49,4 +83,6 @@ setup(name='rdd',
       [console_scripts]
       rdd=rdd.cli:main
       """,
-      cmdclass={'test': PyTest})
+      cmdclass={'test': TestSuite,
+                'test_units': TestUnits,
+                'test_integration': TestIntegration})

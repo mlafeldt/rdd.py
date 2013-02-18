@@ -8,9 +8,9 @@ python:
 install: pip install requests pytest httpretty --use-mirrors
 
 script:
-  - python setup.py test
-  - REALHTTP=1 python setup.py test
-  - make prove -C test/integration
+  - python setup.py test_units
+  - REALHTTP=1 python setup.py test_units
+  - python setup.py test_integration
 
 branches:
   only:
