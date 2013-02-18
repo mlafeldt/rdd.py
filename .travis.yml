@@ -9,7 +9,7 @@ install: pip install requests pytest httpretty --use-mirrors
 
 script:
   - python setup.py test_units
-  - REALHTTP=1 python setup.py test_units
+  - python setup.py test_units --real-http
   - python setup.py test_integration
 
 branches:

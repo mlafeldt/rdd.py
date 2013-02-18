@@ -35,13 +35,17 @@ class TestSuite(Command):
 
 class TestUnits(Command):
     description = 'Runs all unit tests.'
-    user_options = []
+    user_options = [('real-http', None, 'Do not mock HTTP requests')]
 
-    def initialize_options(self): pass
+    def initialize_options(self):
+        self.real_http = None
 
-    def finalize_options(self): pass
+    def finalize_options(self):
+        pass
 
     def run(self):
+        if self.real_http:
+            os.environ['REALHTTP'] = '1'
         sys.exit(test_units())
 
 
