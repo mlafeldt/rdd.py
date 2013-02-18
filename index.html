@@ -76,18 +76,13 @@ $ python setup.py install
 
 <h2>Testing</h2>
 
-<p><a href="https://travis-ci.org/mlafeldt/rdd.py"><img src="https://travis-ci.org/mlafeldt/rdd.py.png?branch=master" alt="Build Status"></a></p>
+<p>rdd.py comes with both unit and integration tests.</p>
 
-<p>The <code>test</code> folder contains both unit and integration tests.</p>
+<p>You can run the tests this way:</p>
 
-<p>You can run the unit tests this way:</p>
-
-<pre><code>$ python setup.py test
-</code></pre>
-
-<p>And for the integration tests:</p>
-
-<pre><code>$ make -C test/integration
+<pre><code>$ python setup.py test             # Runs the entire test suite.
+$ python setup.py test_units       # Runs all unit tests.
+$ python setup.py test_integration # Runs all integration tests.
 </code></pre>
 
 <h2>License</h2>
