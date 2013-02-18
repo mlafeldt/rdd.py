@@ -7,7 +7,7 @@ rdd_root = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', '..')
 sys.path.insert(0, rdd_root)
 
 import pytest
-from httpretty import HTTPretty, httprettified
+from httpretty import HTTPretty
 from rdd import Readability
 
 
