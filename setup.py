@@ -4,7 +4,7 @@ from setuptools import Command, find_packages, setup
 import sys
 
 install_requires = ['requests>=1.0.3']
-tests_require = ['pytest', 'httpretty>=0.5.8']
+tests_require = ['pytest', 'httpretty>=0.5.9']
 
 
 class PyTest(Command):
